@@ -25,7 +25,7 @@ WORKDIR /
 RUN git clone git@github.com:ooby/pycovid.git iris-server
 
 WORKDIR $APP_PATH
-RUN mkdir /input/processed
+RUN mkdir uploads
 RUN pip3 install -r requirements.txt
 WORKDIR $APP_PATH/client
 RUN npm install
