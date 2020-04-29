@@ -1,8 +1,9 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install python3-dev python3-pip apt-utils wget -y && pip3 install pip --upgrade
+RUN apt-get install apt-utils -y
+RUN apt-get install python3-dev python3-pip python3-gdcm wget -y && pip3 install pip --upgrade
 RUN apt-get install git curl gnupg2 ca-certificates lsb-release net-tools -y
 RUN echo "deb http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" | tee /etc/apt/sources.list.d/nginx.list
 RUN curl -fsSL https://nginx.org/keys/nginx_signing.key | apt-key add -
