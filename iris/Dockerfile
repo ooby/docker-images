@@ -19,6 +19,3 @@ RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 WORKDIR /
 RUN git clone git@github.com:ooby/pycovid.git pycovid
-
-ARG MO_CODE
-CMD python3 /pycovid/iris/store.py 0.0.0.0 104 "${MO_CODE}"
