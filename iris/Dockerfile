@@ -1,8 +1,12 @@
-FROM ubuntu:bionic
+FROM yakmed/jupyter-dicom
+
+ARG TIMEZONE
+ENV TZ="${TIMEZONE}"
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install python3-dev python3-pip apt-utils wget -y && pip3 install pip --upgrade
+RUN pip3 install pip --upgrade
 RUN apt-get install git -y
 
 ARG SSH_PRIVATE_KEY
@@ -13,10 +17,8 @@ RUN chmod 400 /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
-ENV APP_PATH=/pycovid
 WORKDIR /
-
 RUN git clone git@github.com:ooby/pycovid.git pycovid
 
-WORKDIR $APP_PATH
-RUN pip3 install -r requirements.txt
+ARG MO_CODE
+CMD python3 /pycovid/iris/store.py 0.0.0.0 104 "${MO_CODE}"
