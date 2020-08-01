@@ -10,12 +10,8 @@ RUN pip3 install pip --upgrade
 RUN apt-get install git -y
 
 ARG SSH_PRIVATE_KEY
-RUN mkdir /root/.ssh/
 RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 RUN chmod 400 /root/.ssh/id_rsa
-
-RUN touch /root/.ssh/known_hosts
-RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 WORKDIR /
 RUN git clone git@github.com:ooby/pycovid.git pycovid
