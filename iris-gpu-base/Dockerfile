@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.0-runtime
+FROM nvidia/cuda:11.0-runtime-ubuntu20.04
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y apt-utils xz-utils python3-dev python3-pip wget htop
