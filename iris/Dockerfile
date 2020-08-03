@@ -1,4 +1,4 @@
-FROM yakmed/jupyter-dicom
+FROM sciberia/iris:base-gpu-latest
 
 ARG TIMEZONE
 ENV TZ="${TIMEZONE}"
