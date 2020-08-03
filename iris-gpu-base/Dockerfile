@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.0-base
+FROM nvidia/cuda:11.0-runtime
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y apt-utils xz-utils python3-dev python3-pip wget htop
