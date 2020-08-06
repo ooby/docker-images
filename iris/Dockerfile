@@ -1,4 +1,4 @@
-FROM sciberia/iris:base-gpu-latest
+FROM sciberia/iris:latest
 
 ARG TIMEZONE
 ENV TZ="${TIMEZONE}"
