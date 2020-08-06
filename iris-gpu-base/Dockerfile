@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.0-cudnn8-runtime-ubuntu18.04
+FROM tensorflow/tensorflow:latest-gpu-jupyter
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y apt-utils xz-utils python3-dev python3-pip wget htop
