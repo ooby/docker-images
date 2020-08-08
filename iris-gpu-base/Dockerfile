@@ -14,7 +14,7 @@ RUN apt-get install -y git libsm6 libxext6 libxrender-dev vim openssh-client
 RUN pip3 install pip --upgrade
 RUN pip3 install cython pytest numpy pandas matplotlib jupyter zeep xlrd \
     pydicom pynetdicom pynrrd pillow scipy scikit-image scikit-learn \
-    SimpleITK xgboost itk tensorflow-gpu=2.2.0 keras-segmentation opencv-python
+    SimpleITK xgboost itk tensorflow-gpu==2.2.0 keras-segmentation opencv-python
 RUN mkdir /root/.ssh/
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
