@@ -13,8 +13,7 @@ ARG SSH_PRIVATE_KEY
 RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 RUN chmod 400 /root/.ssh/id_rsa
 
-WORKDIR /input
-RUN git clone --single-branch --branch develop git@github.com:ooby/pycovid.git pycovid
-
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
+
+WORKDIR /input
