@@ -14,9 +14,9 @@ RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 RUN chmod 400 /root/.ssh/id_rsa
 
 WORKDIR /
-RUN git clone git@github.com:ooby/pycovid.git pycovid
+RUN git clone git@github.com:ooby/iris.git iris
 
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
-CMD python3 /pycovid/iris/store.py 0.0.0.0 104
+CMD python3 /iris/utils/store.py 0.0.0.0 104
