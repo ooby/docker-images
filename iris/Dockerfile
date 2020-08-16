@@ -16,9 +16,9 @@ RUN chmod 400 /root/.ssh/id_rsa
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
-WORKDIR /input
+WORKDIR /
 RUN git clone git@github.com:ooby/iris.git iris
 
-WORKDIR /input/iris
+WORKDIR /iris
 
 CMD pip3 install -e . && python3 ./utils/store.py 0.0.0.0 104
