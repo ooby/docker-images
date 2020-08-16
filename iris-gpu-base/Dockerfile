@@ -10,7 +10,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3.7 get-pip.py && rm -f get-pip.py
 RUN apt-get install -y apt-utils xz-utils wget htop
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq libglib2.0-0
-RUN apt-get install -y git libsm6 libxext6 libxrender-dev vim openssh-client
+RUN apt-get install -y git libsm6 libxext6 libxrender-dev vim openssh-client libgl1-mesa-dev
 RUN pip3 install pip --upgrade
 RUN pip3 install cython pytest numpy pandas matplotlib jupyter zeep xlrd pytz \
     pydicom pynetdicom pynrrd pillow scipy scikit-image scikit-learn \

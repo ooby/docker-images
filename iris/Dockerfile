@@ -13,10 +13,13 @@ ARG SSH_PRIVATE_KEY
 RUN echo "${SSH_PRIVATE_KEY}" > /root/.ssh/id_rsa
 RUN chmod 400 /root/.ssh/id_rsa
 
-WORKDIR /
-RUN git clone git@github.com:ooby/iris.git iris
-
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
-CMD python3 /iris/utils/store.py 0.0.0.0 104
+WORKDIR /
+RUN git clone git@github.com:ooby/iris.git iris
+
+WORKDIR /iris
+
+CMD pip3 install -e .
+CMD python3 ./utils/store.py 0.0.0.0 104
