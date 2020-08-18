@@ -12,5 +12,3 @@ ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
 WORKDIR /input/iris
-
-CMD pip3 install -e .
