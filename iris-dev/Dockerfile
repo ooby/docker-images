@@ -11,4 +11,4 @@ RUN pip3 install pip --upgrade
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
-WORKDIR /input/iris
+WORKDIR /input
