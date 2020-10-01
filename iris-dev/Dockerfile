@@ -11,4 +11,7 @@ RUN pip3 install pip --upgrade
 ARG MO_CODE
 RUN touch /code && echo "${MO_CODE}" > /code
 
+RUN export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+RUN ldconfig
+
 WORKDIR /input
