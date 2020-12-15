@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1-cudnn8-devel-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y python3.7 python3.7-dev curl python3.7-distutils
@@ -13,18 +13,12 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -yq libglib2.0-0
 RUN apt-get install -y git libsm6 libxext6 libxrender-dev vim openssh-client libgl1-mesa-dev
 RUN pip3 install pip --upgrade
 RUN pip3 install scp cython pytest numpy numpy-stl pandas matplotlib jupyter zeep xlrd pytz imageio==2.5.0 \
-    pika pydicom pynetdicom pynrrd pillow scipy==1.4.1 scikit-image scikit-learn \
+    pika pydicom pynetdicom pynrrd pillow scipy==1.4.1 scikit-image scikit-learn rm \
     SimpleITK xgboost itk tensorflow-gpu==2.2.0 keras-segmentation==0.3.0 opencv-python pymongo sshtunnel
 RUN mkdir /root/.ssh/
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 WORKDIR /input
-RUN git clone --branch master https://github.com/HealthplusAI/python3-gdcm.git
-RUN cd python3-gdcm && dpkg -i build_1-1_amd64.deb && apt-get install -f
-RUN cp /usr/local/lib/gdcm.py /usr/local/lib/python3.7/dist-packages/.
-RUN cp /usr/local/lib/gdcmswig.py /usr/local/lib/python3.7/dist-packages/.
-RUN cp /usr/local/lib/_gdcmswig.so /usr/local/lib/python3.7/dist-packages/.
-RUN cp /usr/local/lib/libgdcm* /usr/local/lib/python3.7/dist-packages/.
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 RUN ldconfig
 RUN apt-get install -y build-essential
