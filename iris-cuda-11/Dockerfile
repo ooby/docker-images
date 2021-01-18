@@ -13,7 +13,7 @@ RUN apt-get install -yq libcudnn8-dev=8.0.5.39-1+cuda11.1
 RUN pip3 install pip --upgrade
 RUN pip3 install scp cython pytest numpy numpy-stl pandas matplotlib jupyter zeep xlrd pytz imageio \
     pika pydicom pynetdicom pynrrd pillow scipy scikit-image scikit-learn rm \
-    SimpleITK xgboost==1.2.1 itk tensorflow-gpu keras-segmentation opencv-python pymongo sshtunnel
+    SimpleITK xgboost==1.2.0 itk tensorflow-gpu keras-segmentation opencv-python pymongo sshtunnel
 RUN mkdir /root/.ssh/
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts

@@ -14,7 +14,7 @@ RUN apt-get install -y git libsm6 libxext6 libxrender-dev vim openssh-client lib
 RUN pip3 install pip --upgrade
 RUN pip3 install scp cython pytest numpy numpy-stl pandas matplotlib jupyter zeep xlrd pytz imageio==2.5.0 \
     pika pydicom pynetdicom pynrrd pillow scipy==1.4.1 scikit-image scikit-learn rm \
-    SimpleITK xgboost==1.2.1 itk tensorflow-gpu==2.2.0 keras-segmentation==0.3.0 opencv-python pymongo sshtunnel
+    SimpleITK xgboost==1.2.0 itk tensorflow-gpu==2.2.0 keras-segmentation==0.3.0 opencv-python pymongo sshtunnel
 RUN mkdir /root/.ssh/
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
