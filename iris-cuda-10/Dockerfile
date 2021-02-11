@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-cudnn7-devel-ubuntu18.04
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y python3.7 python3.7-dev curl python3.7-distutils
