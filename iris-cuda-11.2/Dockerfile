@@ -14,5 +14,6 @@ RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 WORKDIR /data
 ENV LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 RUN ldconfig
+RUN ln -s /usr/local/cuda/lib64/libcusolver.so.11 /usr/local/cuda/lib64/libcusolver.so.10
 RUN apt-get install -y build-essential
 RUN pip3 install pycuda
